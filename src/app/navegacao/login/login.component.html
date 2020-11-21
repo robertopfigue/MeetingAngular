@@ -1,0 +1,31 @@
+<div class="text-center">
+    <header class="py-5">
+        <img src="/assets/image_logo.png" class="img-fluid" class="rounded" alt="Imagem responsiva">
+    </header>
+</div>
+
+<div class="container main-container w-25">
+  <div class="row row-sm-offset"></div>
+    <form class="px-4 py-0">
+      <div class="form-group">
+        <label class="form-control-label mbr-fonts-style display-7" for="email-form1-2w">Endereço de email</label>
+        <input type="email" class="form-control" name="email" data-form-field="email" required="" placeholder="email@exemplo.com" id="first-form1-2w">
+      </div>
+      <div class="form-group">
+        <label class="form-control-label mbr-fonts-style display-7" for="exampleDropdownFormPassword1">Senha</label>
+        <input type="text" class="form-control" name="senha" data-form-field="Senha" required="" placeholder="Senha" id="first-form1-2w">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Remember me
+        </label>
+      </div>
+      <div class="container w-25 h-25">
+      <button type="submit" class="btn btn-dark">Entrar</button>
+      </div>
+
+    </form>
+    <label class="dropdown-item" class="footer" class="h-25"></label>
+    <a class="dropdown-item" [routerLink]="['/cadastro']">Novo, por aqui? Regitre-se.</a>
+</div>
