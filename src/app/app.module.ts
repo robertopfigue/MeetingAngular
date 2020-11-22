@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF, CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
@@ -13,6 +13,7 @@ import { rootRouterConfig } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { SalaService } from './salas/services/sala.service';
 import { ListaSalasComponent } from './salas/lista-salas/lista-salas.component';
+import { CriaragendamentoComponent } from './agendamento/criaragendamento/criaragendamento.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { ListaSalasComponent } from './salas/lista-salas/lista-salas.component';
     LoginComponent,
     FooterComponent,
     CadastroComponent,
-    ListaSalasComponent
+    ListaSalasComponent,
+    CriaragendamentoComponent
   ],
   imports: [
     CommonModule,
     BrowserModule, 
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
   ],
   providers: [

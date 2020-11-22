@@ -1,0 +1,51 @@
+<!-- Page Content -->
+<div class="container main-container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Agendamento!</h1>
+        <p class="lead">Agende uma sala.</p>
+    </header>
+
+    <form class="mbr-form"method="POST" #frm="ngForm" (ngSubmit)="CriarAgendamento(frm)">
+        <div class="row row-sm-offset">
+            <div class="col-md-10 multi-horizontal" data-for="Title">
+                <div class="form-group">
+                    <label class="form-control-label mbr-fonts-style display-7" for="name-form1-2w">Título</label>
+                    <input type="text" class="form-control" name="title" data-form-field="FirstName" required=""
+                        id="title"
+                        [(ngModel)] = "agendamento.title" required>
+                </div>
+            </div>
+            <div [formGroup] = "sala" class="col-md-2 multi-horizontal" data-for="room">
+                    <label class="form-control-label mbr-fonts-style display-7" for="room-form1-2w">Sala</label>
+                    <select  class="form-control" id="room" formControlName="sala">
+                        <option *ngFor="let salalivre of salaslivres" ngValue="salalivre.id">{{salalivre.numberRoom}}</option>
+                    </select>
+            </div>
+            <div class="col-md-3 multi-horizontal" data-for="initialDate">
+                <div class="form-group">
+                <label class="form-control-label mbr-fonts-style display-7" for="date-form1-2w">Data Inicial</label>
+                <input type="text" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" name="initialdate" [ngModel]="agendamento.initialDate" data-form-field="date" required=""
+                    id="initialDate"
+                    [(ngModel)] = "agendamento.initialDate" required>
+                </div>
+            </div>
+            
+            <div class="col-md-3 multi-horizontal" data-for="password">
+                <div class="form-group">
+                <label class="form-control-label mbr-fonts-style display-7" for="password-form1-2w">Data Final</label>
+                <input type="text" class="form-control" name="finalDate" [ngModel]="agendamento.finalDate" data-form-field="finalDate" required=""
+                    id="finalDate"
+                    [(ngModel)] = "agendamento.finalDate" required>
+                </div>
+            </div>
+        </div>
+
+        <span class="input-group-btn">
+            <button href="" type="submit"
+             class="btn btn-dark btn-form display-4" [disabled] = "frm.invalid">Cadastrar</button>
+        </span>
+    </form>
+</div>
+<br>
