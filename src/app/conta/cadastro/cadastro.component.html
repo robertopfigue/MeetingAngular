@@ -7,33 +7,45 @@
         <p class="lead">Cria seu usuário para agendar uma sala.</p>
     </header>
 
-    <form class="mbr-form">
+    <form class="mbr-form" method="POST" #frm="ngForm" (ngSubmit)="CadastrarUsuario(frm)">
         <div class="row row-sm-offset">
             <div class="col-md-4 multi-horizontal" data-for="firstname">
                 <div class="form-group">
                     <label class="form-control-label mbr-fonts-style display-7" for="name-form1-2w">Primeiro Nome</label>
                     <input type="text" class="form-control" name="fristname" data-form-field="FirstName" required=""
-                        id="first-form1-2w">
+                        id="firstname"
+                        [(ngModel)] = "usuario.firstname" required>
                 </div>
             </div>
             <div class="col-md-4 multi-horizontal" data-for="lastname">
                 <div class="form-group">
                     <label class="form-control-label mbr-fonts-style display-7" for="name-form1-2w">Segundo Nome</label>
-                    <input type="text" class="form-control" name="lastname" data-form-field="Email" required=""
-                        id="lastname-form1-2w">
+                    <input type="text" class="form-control" name="lastname" [ngModel]="usuario.lastname" data-form-field="Email" required=""
+                        id="lastname"
+                        [(ngModel)] = "usuario.lastname" required>
                 </div>
             </div>
             <div class="col-md-6 multi-horizontal" data-for="email">
                 <div class="form-group">
                 <label class="form-control-label mbr-fonts-style display-7" for="email-form1-2w">E-mail</label>
-                <input type="email" class="form-control" name="email" data-form-field="Email" required=""
-                    id="email-form1-2w">
+                <input type="email" class="form-control" name="email" [ngModel]="usuario.email" data-form-field="Email" required=""
+                    id="email"
+                    [(ngModel)] = "usuario.email" required email>
+                </div>
+            </div>
+            <div class="col-md-4 multi-horizontal" data-for="password">
+                <div class="form-group">
+                <label class="form-control-label mbr-fonts-style display-7" for="password-form1-2w">Senha</label>
+                <input type="password" class="form-control" name="password" [ngModel]="usuario.password" data-form-field="password" required=""
+                    id="password"
+                    [(ngModel)] = "usuario.password" required>
                 </div>
             </div>
         </div>
 
         <span class="input-group-btn">
-            <button href="" type="submit" class="btn btn-dark btn-form display-4">Cadastrar</button>
+            <button href="" type="submit"
+             class="btn btn-dark btn-form display-4" [disabled] = "frm.invalid">Cadastrar</button>
         </span>
     </form>
 </div>

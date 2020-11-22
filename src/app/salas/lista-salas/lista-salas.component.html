@@ -1,0 +1,31 @@
+<div class="container main-container">
+
+    <div class="row text-center">
+        <div *ngFor="let salalivre of salaslivres" class="col-md-4">
+            <div class="car h-100">
+                <a class="text-decoration-none">
+                    <div style="align-content: center;">
+                        <img src="/assets/meeting-room.png" height="164px" width="253px" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title" style="color: darkslategray;">Sala {{ salalivre.numberRoom }}</h4>
+                            <p style="color: darkgreen;" class="lead"><strong>Livre</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div *ngFor="let salareservada of salasreservadas" class="col-md-4">
+            <div class="car">
+                <a class="text-decoration-none">
+                    <div style="align-content: center;">
+                        <img src="/assets/meeting-room.png" height="164px" width="253px" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title" style="color: darkslategray;">Sala {{ salareservada.numberRoom }}</h4>
+                            <p style="color: darkred;" class="lead"><strong>Reservada</strong></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
