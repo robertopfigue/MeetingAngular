@@ -10,10 +10,15 @@ import { LoginComponent } from './conta/login/login.component';
 import { FooterComponent } from './navegacao/footer/footer.component';
 import { CadastroComponent } from './conta/cadastro/cadastro.component';
 import { rootRouterConfig } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SalaService } from './salas/services/sala.service';
 import { ListaSalasComponent } from './salas/lista-salas/lista-salas.component';
 import { CriaragendamentoComponent } from './agendamento/criaragendamento/criaragendamento.component';
+import { CriaSalaComponent } from './salas/cria-sala/cria-sala.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpServiceInterceptor } from './interceptor/http.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { CriaragendamentoComponent } from './agendamento/criaragendamento/criara
     FooterComponent,
     CadastroComponent,
     ListaSalasComponent,
-    CriaragendamentoComponent
+    CriaragendamentoComponent,
+    CriaSalaComponent
   ],
   imports: [
     CommonModule,
@@ -31,11 +37,14 @@ import { CriaragendamentoComponent } from './agendamento/criaragendamento/criara
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
   ],
   providers: [
     SalaService,
-    {provide: APP_BASE_HREF, useValue: '/'}
+    {provide: APP_BASE_HREF, useValue: '/'},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

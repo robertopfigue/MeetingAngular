@@ -8,6 +8,9 @@
     </header>
 
     <form class="mbr-form"method="POST" #frm="ngForm" (ngSubmit)="CriarAgendamento(frm)">
+        <span class="text-danger" *ngIf="(error.length > 0)">
+            <p>{{error}}</p>
+            </span>
         <div class="row row-sm-offset">
             <div class="col-md-10 multi-horizontal" data-for="Title">
                 <div class="form-group">
@@ -17,27 +20,27 @@
                         [(ngModel)] = "agendamento.title" required>
                 </div>
             </div>
-            <div [formGroup] = "sala" class="col-md-2 multi-horizontal" data-for="room">
+            <div class="col-md-2 multi-horizontal" data-for="room">
                     <label class="form-control-label mbr-fonts-style display-7" for="room-form1-2w">Sala</label>
-                    <select  class="form-control" id="room" formControlName="sala">
-                        <option *ngFor="let salalivre of salaslivres" ngValue="salalivre.id">{{salalivre.numberRoom}}</option>
-                    </select>
+                    <input type="number" class="form-control" name="room" data-form-field="FirstName" required=""
+                        id="room"
+                        [(ngModel)] = "agendamento.room" required placeholder="Ex: 10">
             </div>
             <div class="col-md-3 multi-horizontal" data-for="initialDate">
                 <div class="form-group">
                 <label class="form-control-label mbr-fonts-style display-7" for="date-form1-2w">Data Inicial</label>
-                <input type="text" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" name="initialdate" [ngModel]="agendamento.initialDate" data-form-field="date" required=""
+                <input type="datetime-local" data-format="dd/MM/yyyy hh:mm:ss" class="form-control" name="initialdate" [ngModel]="agendamento.initialDate" data-form-field="date" required=""
                     id="initialDate"
-                    [(ngModel)] = "agendamento.initialDate" required>
+                    [(ngModel)] = "agendamento.initialDate" required placeholder="mm/dd/aaaa 00:00:00">
                 </div>
             </div>
             
             <div class="col-md-3 multi-horizontal" data-for="password">
                 <div class="form-group">
                 <label class="form-control-label mbr-fonts-style display-7" for="password-form1-2w">Data Final</label>
-                <input type="text" class="form-control" name="finalDate" [ngModel]="agendamento.finalDate" data-form-field="finalDate" required=""
+                <input type="datetime-local" class="form-control" name="finalDate" [ngModel]="agendamento.finalDate" data-form-field="finalDate" required=""
                     id="finalDate"
-                    [(ngModel)] = "agendamento.finalDate" required>
+                    [(ngModel)] = "agendamento.finalDate" required placeholder="mm/dd/aaaa 00:00:00">
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ export class ListaSalasComponent implements OnInit {
 
   public salaslivres: SalaLivre[] = [];
   public salasreservadas: SalaLivre[] = [];
+  
   ngOnInit(): void {
     this.salaService.obterSalasLivres().
     subscribe(
@@ -31,6 +32,4 @@ export class ListaSalasComponent implements OnInit {
       error => console.log(error)
     );
   }
-
-
 }

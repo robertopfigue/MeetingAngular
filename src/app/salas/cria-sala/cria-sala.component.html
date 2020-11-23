@@ -1,0 +1,28 @@
+<!-- Page Content -->
+<div class="container main-container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Adicionar Salas!</h1>
+        <p class="lead">Adicione novas salas de reunião.</p>
+    </header>
+
+    <form class="mbr-form" method="POST" #frm="ngForm" (ngSubmit)="AddSala(frm)">
+        <div class="row row-sm-offset">
+            <div class="col-md-4 multi-horizontal" data-for="sala">
+                <div class="form-group">
+                    <label class="form-control-label mbr-fonts-style display-7" for="name-form1-2w">Numero da Sala</label>
+                    <input type="number" class="form-control" name="sala" data-form-field="sala" required=""
+                        id="sala"
+                        [(ngModel)] = "sala.Number" required>
+                </div>
+            </div>
+        </div>
+
+        <span class="input-group-btn">
+            <button href="" type="submit"
+             class="btn btn-dark btn-form display-4" [disabled] = "frm.invalid">Cadastrar</button>
+        </span>
+    </form>
+</div>
+<br>

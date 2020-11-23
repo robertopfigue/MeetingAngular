@@ -13,7 +13,6 @@ import { UsuarioService } from '../services/usuario.service';
 export class CadastroComponent {
 
   ngOnInit(){
-    this.usuario = {} as Usuario;
   }
 
   usuario = {} as Usuario;
