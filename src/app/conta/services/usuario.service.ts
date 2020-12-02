@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Usuario } from '../models/usuario.module';
+import { Login } from '../models/login.module';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Usuario } from '../models/usuario.module';
 export class UsuarioService {
 
   url = 'https://localhost:44397/api/user/Adicionar';
+  url2 = 'https://localhost:44397/api/user/Auth';
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -22,6 +24,10 @@ export class UsuarioService {
 
   saveUsuario(usuario: Usuario) {
     return this.httpClient.post(this.url, usuario);
+  }
+
+  authUsuario(login: Login){
+    return this.httpClient.post(this.url2, login);
   }
 
   handleError(error: HttpErrorResponse) {
